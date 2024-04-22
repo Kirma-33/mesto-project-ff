@@ -6,12 +6,12 @@ const cardTemplate = document.querySelector('#card-template').content;
 
 // @todo: DOM узлы
 const content = document.querySelector('.content');
-const cardList = content.querySelector('.places__list');
+const cardsContainer = content.querySelector('.places__list');
 
 
 // @todo: Функция создания карточки
 
-function cardAdd(placesItem, cardDelite) {
+function createCard(placesItem, cardDelite) {
     const cardElement = cardTemplate.querySelector('.places__item').cloneNode(true);
     const buttonDelite = cardElement.querySelector('.card__delete-button')
 
@@ -32,11 +32,11 @@ function cardAdd(placesItem, cardDelite) {
 
 // @todo: Функция удаления карточки
 
-    function CardRemuve(cardElement) { 
+    function removeCard(cardElement) { 
         cardElement.remove();
     }
 // @todo: Вывести карточки на страницу
 initialCards.forEach(function(placesItem) {
-    const element = cardAdd(placesItem, CardRemuve);
-    cardList.append(element);
+    const element = createCard(placesItem, removeCard);
+    cardsContainer.append(element);
   });
